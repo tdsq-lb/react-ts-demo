@@ -1,14 +1,10 @@
-import React, { useState } from 'react'
-import List1 from './List1'
-import List from './pages/List'
+import React, { useState } from "react"
+import { RouterProvider } from "react-router-dom"
+import routerConfig from "./router"
+
 
 function App() {
-  const [count, setCount] = useState(0)
-  return (
-    <div>
-      <List />
-    </div>
-  )
+  return <RouterProvider router={routerConfig}></RouterProvider>
 }
 
 export default App

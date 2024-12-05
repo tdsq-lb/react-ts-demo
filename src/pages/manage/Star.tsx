@@ -4,8 +4,8 @@ interface IProps {
   children?: React.ReactNode
 }
 
-const Start: React.FC<IProps> = () => {
+const Star: React.FC<IProps> = () => {
   return <div>Start</div>
 }
 
-export default memo(Start)
+export default memo(Star)
