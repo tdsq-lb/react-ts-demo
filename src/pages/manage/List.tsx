@@ -1,7 +1,10 @@
 import { memo, useState } from "react"
 import { useSearchParams } from "react-router-dom"
-import styles from "./List.module.scss"
+import { Typography } from "antd"
+import styles from "./common.module.scss"
 import QuestionCard from "../../components/QuestionCard"
+
+const { Title } = Typography
 
 interface IProps {
   children?: React.ReactNode
@@ -12,7 +15,7 @@ const rowQuestionList = [
     _id: "q1",
     title: "问卷1",
     isPublished: false,
-    isStar: false,
+    isStar: true,
     answerCount: 5,
     createdAt: "3月10日 13:23"
   },
@@ -61,15 +64,16 @@ const List: React.FC<IProps> = () => {
     <>
       <div className={styles["header"]}>
         <div className={styles["left"]}>
-          <h3>我的问卷</h3>
+          <Title level={3}>我的问卷</Title>
         </div>
         <div className={styles["right"]}>搜索</div>
       </div>
       <div className={styles["content"]}>
-        {questionList.map((q) => {
-          const { _id } = q
-          return <QuestionCard key={_id} itemData={q} />
-        })}
+        {questionList.length > 0 &&
+          questionList.map((q) => {
+            const { _id } = q
+            return <QuestionCard key={_id} itemData={q} />
+          })}
       </div>
       <div className={styles["footer"]}>分页</div>
     </>
